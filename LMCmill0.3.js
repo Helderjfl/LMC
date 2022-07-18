@@ -204,11 +204,11 @@ var blankmemorytabledata = [
 // Execution speeds - we also have the Next button which steps.
 //
 const speeds = {
-  SUPERSLOW: "<i class='fa-regular fa-hand'></i>  Explain Everything - around 2 seconds per cycle",
-  SLOW: "<i class='fa-solid fa-person-walking'></i>  Run Slow - about 1 second per cycle",
-  MEDIUM: "<i class='fa-solid fa-person-running'></i>  Run at Medium speed - about 0.5 seconds per cycle",
-  FAST: "<i class='fa-solid fa-bicycle'></i>  Run at Fast speed - about 0.25 seconds per cycle",
-  SUPERFAST: "<i class='fa-solid fa-rocket'></i>  Just Run!  About 0.1 seconds per cycle",
+  SUPERSLOW: "<i class='fa-regular fa-hand'></i>  Explica tudo - 2 segundos por ciclo",
+  SLOW: "<i class='fa-solid fa-person-walking'></i>  Roda devagar - 1 segundo por ciclo",
+  MEDIUM: "<i class='fa-solid fa-person-running'></i> Roda na velocidade média - 0.5 segundo por ciclo",
+  FAST: "<i class='fa-solid fa-bicycle'></i>  Roda na velocidade rápida - 0.25 segundo por ciclo",
+  SUPERFAST: "<i class='fa-solid fa-rocket'></i>  Apenas roda - 0.1 segundo por ciclo",
 }
 
 //
