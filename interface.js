@@ -102,7 +102,6 @@ helpCloseBtn.onclick = function () {
 // <!-- Handle return being pressed in the Input box      -->
 document.getElementById('input-text').addEventListener("keypress", function (e) {
     if (e.code == "Enter") {
-        alert("13");
         document.getElementById('input-button').click();
     }
 }, true);
