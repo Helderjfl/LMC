@@ -311,3 +311,38 @@ canvas {
 }
 /* remove to here*/
 
+#input-text{
+  padding: 10px 10px;
+  width: 100%;
+  font-size: 1.2rem;
+  margin: 5px auto;
+}
+
+#input-button{
+  padding: 10px;
+  width: 100%;
+  background-color: #c19cd4;
+  border: solid 1px white;
+  font-size: 1.1rem;
+}
+
+#output-text{
+  font-size: 1.1rem;
+  margin: 5px auto;
+}
+
+#log-text{
+  font-size: 1.1rem;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  /* margin: 0; */
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
