@@ -607,13 +607,13 @@ function drawCPU(context) {
 
   xpos = canvasInfo.x_offset;
   ypos = canvasInfo.y_offset + canvasInfo.y_increment1 + (2*canvasInfo.y_increment2);
-  drawRegister(context, "INPUT",   xpos, ypos, canvasInfo.regWidth, canvasInfo.regHeight, '#C0D4F5');
+  drawRegister(context, "ENTRADA",   xpos, ypos, canvasInfo.regWidth, canvasInfo.regHeight, '#C0D4F5');
 
   xpos += canvasInfo.x_increment;
   drawRegister(context, "ACC",     xpos, ypos, canvasInfo.regWidth, canvasInfo.regHeight, '#79B94F');
 
   xpos += canvasInfo.x_increment;
-  drawRegister(context, "OUTPUT",  xpos, ypos, canvasInfo.regWidth, canvasInfo.regHeight, '#C0D4F5');
+  drawRegister(context, "SAÍDA",  xpos, ypos, canvasInfo.regWidth, canvasInfo.regHeight, '#C0D4F5');
 
   xpos = canvasInfo.x_offset + canvasInfo.x_increment;
   ypos = canvasInfo.y_offset + canvasInfo.y_increment1 + canvasInfo.y_increment2;
@@ -2903,18 +2903,18 @@ function canvasHitCheck(x, y) {
     tooltipX += 20;
 
     if (y >= y1 && y <= y1+canvasInfo.regHeight) {
-      description = "Program Counter\nThe Program Counter contains the address of the next instruction to be fetched from memory.\nIf you watch carefully as a program is running, you will see that the PC immediately increments by one as soon as an instruction is read from Memory.\nThe Branching instructions ('BRA', 'BRZ', and 'BRP') can change the value in the PC, causing program execution to 'jump' to the new address in Memory.";
+      description = "Contador de Programa\nO Contador de Programa contém o endereço da próxima instrução a ser buscada na memória.\nSe você observar atentamente durante a execução de um programa, irá ver que o PC incrementa em 1 imediatamente após uma instrução ser lida da memória.\nAs instruções de ramificação ('BRA', 'BRZ', e 'BRP') podem mudar o valor do PC, causando um salto na execução do programa para um novo endereço de memória.";
       hitRegister = true;
     } else if (y >= y2 && y <= y2+canvasInfo.regHeight) {
-      description = "Current Instruction Register\nThe Current Instruction Register contains the last instruction fetched from Memory via the MDR.  Before the instruction can be executed, it must be decoded into a set of signals by the DECODER component.";
+      description = "Registrador de Instrução Atual\nO Registrador de Instrução Atual contém a última instrução buscada da memória via o MDR. Antes da instrução ser executada, ele deve ser decodificado em uma série de sinais pelo Decodificador.";
       hitRegister = true;
       tooltipY -= yoffset1;
     } else if (y >= y3 && y <= y3+canvasInfo.regHeight) {
-      description = "Decoder\nThe Decoder takes the instruction code from the CIR and turns it into a set of signals to control the execution of the instruction.";
+      description = "Decodificador\nO Decodificador pega o código de instrução do CIR e transforma ele em uma série de sinais para controlar a execução da instrução.";
       hitRegister = true;
       tooltipY -= yoffset2;
     } else if (y >= y4 && y <= y4+canvasInfo.regHeight) {
-      description = "Input\nThe 'mailbox' used to hold user input before it is moved to the Accumulator.  When an 'INP' instruction is executed, the user is prompted to enter a value which will be placed into this 'mailbox' and then moved into the Accumulator.";
+      description = "Entrada\nA caixa de entrada é usada para segurar a entrada de dado do usuário antes dele ser movido para o acumulador. Quando uma instrução 'INP' é executada, o usuário é solicitado a entrar com o valor que será colocado na caixa de entrada e então movido para o acumulador.";
       hitRegister = true;
       tooltipY -= yoffset3;
     }
@@ -2932,11 +2932,11 @@ function canvasHitCheck(x, y) {
     tooltipX -= tooltipWidth/2;
 
     if (y >= y3 && y <= y3+canvasInfo.regHeight) {
-      description = "Arithmetic and Logic Unit\nThe Arithmetic and Logic Unit is responsible for the 'ADD' and 'SUB' operations.  In a modern processor, the ALU would be much more complex of course, but the Little Man Computer instruction set only has these two arithmetic operations.";
+      description = "Unidade Lógica e Aritmética\nA Unidade Lógica e Aritmética é responsável pelas operações de 'ADD' e 'SUB'. Em um processador moderno, a ALU seria muito mais complexa, mas o conjunto de instruções do LMC possui apenas essas duas operações.";
       hitRegister = true;
       tooltipY -= yoffset2;
     } else if (y >= y4 && y <= y4+canvasInfo.regHeight) {
-      description = "Accumulator\nThe Accumulator normally holds the result of the latest operation carried out by the ALU, but a value can also be directly loaded into the Accumulator from Memory, using the 'LDA' instruction.  We can also write the current value of the Accumulator into Memory using the 'STA' instruction.  Finally, the Accumulator can be loaded from user input (the 'INP' instruction) or used as output to the user (the 'OUT' instruction).";
+      description = "Acumulador\nO Acumulador normalmente mantem o resultado da última operação resultante da ALU, mas um valor pode ser diretamente carregada no acumulador advinda da memória, usando a instrução 'LDA'.É possível escrever o valor atual do acumulador na memória usando a instrução 'STA'. Finalmente, o acumulador pode ser carregado por uma entrada do usuário (instrução 'INP') ou usado como saída para o usuário (instrução 'OUT').";
       hitRegister = true;
       tooltipY -= yoffset3;
     }
@@ -2950,18 +2950,18 @@ function canvasHitCheck(x, y) {
     tooltipX -= tooltipWidth + 20;
 
     if (y >= y1 && y <= y1+canvasInfo.regHeight) {
-      description = "Memory Address Register\nThe Memory Address Register holds an address for a Memory location which is about to be read from, or written to.  In a read operation (which could be fetching an instruction or reading data), the value at the memory address will be retrieved and placed in the MDR.  In a write operation (as part of an 'STA' instruction), the value in the MDR will be written to Memory at this address.";
+      description = "Registrador de Endereço de Memória\nO Registrador de Endereço de Memória mantém um endereço para um local da memória que será lido ou escrito. Em uma operação de leitura (que poderia estar buscando uma instrução ou lendo um dado), o valor no endereço de memória será recuperado e colocado na MDR. Em uma operação de escrita (parte da instrução 'STA'), o valor no MDR será escrito na memória no endereço especificado.";
       hitRegister = true;
     } else if (y >= y2 && y <= y2+canvasInfo.regHeight) {
-      description = "Memory Data Register\nThe Memory Data Register holds a value which has either been read from Memory, or which is about to be written to Memory.  It is important to note that this value can be either an instruction or data.  In the case of an instruction, this will always have been read from Memory as part of the Fetch-Execute-Decode cycle.  In the case of data, the value may have been read from memory (in an 'LDA', 'SUB' or 'ADD' instruction) or be written to Memory (in an 'STA' instruction).";
+      description = "Registrador de Dado de Memória\nO Registrador de Dado da Memória mantém o valor que foi lido da memória, ou que será escrito na memória. É importante notas que esse valor pode ser uma instrução ou dado. No caso de uma instrução, ele sempre terá sido lido da memória como parte do ciclo BUSCA-EXECUTA-DECODIFICA. No caso de um dado, o valor pode ter sido lido da memória (instrução 'ADD', 'SUB' ou 'LDA') ou será escrito na memória (instrução 'STA').";
       hitRegister = true;
       tooltipY -= yoffset1;
     } else if (y >= y3 && y <= y3+canvasInfo.regHeight) {
-      description = "Status Register\nThe Status Register is an important component in any modern processor.  When the ALU has completed an operation, the Status Register is updated with information about that operation.  In this simulator, only three bits are used: the Least Significant Bit (bit 0) is an overflow flag - if the result of an addition is greater than 999, or the result of a subtraction is less than -999, this flag will be set to 1.  Bit 1 is used to record whether the result of an operation is zero, and bit 2 is used to record whether the result of an operation is positive (zero or more).  Bits 1 and 2 are used in the 'BRZ' and 'BRP' operations.";
+      description = "Registrador de Estado\nO Registrador de Estado é um componente importante de qualquer processador moderno. Quando a ALU completa uma operação, o Registrador de Estado é atualizado com uma informação sobre essa operação. Nesse simulador, apenas 3 bits são usados: O bit menos significativo (bit 0) é uma flag de transbordamento - se o resultado de uma soma for maior que 999, ou o resultado de uma subtração for menos que -999, essa flag terá valor 1. Bit 1 é usado para quando o resultado de uma operação é zero, e o bit 2 é usado para quando o resultado de uma operação é positivo (zero ou mais). Bits 1 e 2 são usados nas operações de ramificação 'BRZ' e 'BRP'.";
       hitRegister = true;
       tooltipY -= yoffset2;
     } else if (y >= y4 && y <= y4+canvasInfo.regHeight) {
-      description = "Output\nThe 'mailbox' used to hold output from the Accumulator.  When an 'OUT' instruction is executed, the value currently held in the Accumulator is moved into this mailbox and then displayed to the user.";
+      description = "Saída\nA Caixa de Saída é usada para guardar a saída do acumulador. Quando uma instrução 'OUT' é executada, o valor do Acumulador é movido para a Caixa de Saída e apresentado ao usuário.";
       hitRegister = true;
       tooltipY -= yoffset3;
     }
