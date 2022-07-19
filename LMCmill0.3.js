@@ -415,10 +415,10 @@ function filltable() {
     layout:"fitColumns", //fit columns to width of table (optional)
     columns:[ 
       {title:"", field:"active", formatter:"traffic", formatterParams:{min:1, max:3, color:["green", "orange", "red"]}, width:25, maxWidth:25, minWidth:25, hozAlign:"center", headerSort:false, download:false},
-      {title:"Line", field:"line", width:"10%", widthShrink:3, headerSort:false},
-      {title:"Label", field:"label", width:"20%", widthShrink:6, hozAlign:"left", editor:true, headerSort:false},
-      {title:"Operator", field:"operator", width:"30%", widthShrink:4, editor:true, headerSort:false},
-      {title:"Operand", field:"operand", width:"35%", widthShrink:6, editor:true, headerSort:false},
+      {title:"Linha", field:"line", width:"10%", widthShrink:3, headerSort:false},
+      {title:"Rótulo", field:"label", width:"20%", widthShrink:6, hozAlign:"left", editor:true, headerSort:false},
+      {title:"Operador", field:"operator", width:"30%", widthShrink:4, editor:true, headerSort:false},
+      {title:"Operando", field:"operand", width:"35%", widthShrink:6, editor:true, headerSort:false},
     ],
     selectable:1,
     keybindings:{
@@ -1150,7 +1150,7 @@ function processInput(){
 
     if (userInput.length == 0) {
       let logobj=document.getElementById("log-text");
-      logobj.value += "> ERROR:  Invalid input value.\n";
+      logobj.value += "> ERROR:  Valor de entrada inválido.\n";
       logobj.scrollTop = logobj.scrollHeight;
       return;
     }
@@ -1159,14 +1159,14 @@ function processInput(){
     
     if ((trial > 999) || (trial < -999)) {
       let logobj=document.getElementById("log-text");
-      logobj.value += "> ERROR:  Invalid input value.  Must be between -999 and +999\n";
+      logobj.value += "> ERROR:  Valor de entrada inválido. Deve ser entre -999 e +999\n";
       logobj.scrollTop = logobj.scrollHeight;
       return;
     }
 
     
     let logobj=document.getElementById("log-text");
-    logobj.value += "> EXECUTE:  Transferring input to accumulator: " + userInput + "\n";
+    logobj.value += "> EXECUTE:  Transferindo entrada para acumulador: " + userInput + "\n";
     logobj.scrollTop = logobj.scrollHeight;
     accumulator = parseInt(userInput);
 
@@ -1199,7 +1199,7 @@ function processInput(){
     // ... if not, log and ignore
     //
     let logobj=document.getElementById("log-text");
-    logobj.value += "> Input fired, but processor not waiting: " + state + " - ignored\n";
+    logobj.value += "> Entrada disparada, mas o processador não está esperando: " + state + " - ignorado\n";
     logobj.scrollTop = logobj.scrollHeight;
   }
 }
@@ -1250,30 +1250,30 @@ function printCode(){
 // LMC Instruction Set
 //
 const opcodesLMC = [{mnemonic: "ADD", mc:"1xx", name: "Add", 
-                     description: "Add the contents of the given memory location to the accumulator"}, 
+                     description: "Adiciona o conteúdo do endereço de memória para o acumulador"}, 
                     {mnemonic: "SUB", mc:"2xx", name: "Subtract", 
-                     description: "Subtract the contents of the given memory location from the accumulator"},
+                     description: "Subtrai o valor do acumulador pelo conteúdo do endereço de memória"},
                     {mnemonic: "STA", mc:"3xx", name: "Store Accumulator", 
-                     description: "Copy the value in the Accumulator to the given memory address"},
+                     description: "Copia o valor do acumulador para o endereço de memória"},
                     {mnemonic: "LDA", mc:"5xx", name: "Load Accumulator", 
-                     description: "Copy the value from the given memory location into the Accumulator"},
+                     description: "Copia o conteúdo do endereço de memória para o acumulador"},
                     {mnemonic: "BRA", mc:"6xx", name: "Branch", 
-                     description: "Set the Program Counter to the given memory location and execute"
-                       +" the next instruction"},
+                     description: "Define o Contador de Programa (PC) para o endereço de memória especificado e executa"
+                       +" a próxima instrução"},
                     {mnemonic: "BRZ", mc:"7xx", name: "Branch if Accumulator Zero", 
-                     description: "If the value in the Accumulator is zero,then set the Program Counter"
-                       +" to the given memory location and execute the next instruction"},
+                     description: "Se o valor do acumulador for zero, então define o Contador de Programa (PC)"
+                       +" para o endereço de memória especificado e executa a próxima instrução"},
                     {mnemonic: "BRP", mc:"8xx", name: "Branch if Accumulator Positive", 
-                     description: "If the value in the Accumulator is positive, then set the Program"
-                       +" Counter to the given memory location and execute the next instruction"},
+                     description: "Se o valor do acumulador for positivo, então define o Contador de Programa (PC)"
+                       +" para o endereço de memória especificado e executa a próxima instrução"},
                     {mnemonic: "INP", mc:"901", name: "Input", 
-                     description: "Copy the value from the 'Input' box into the Accumulator"},
+                     description: "Copia o valor da caixa de entrada para o acumulador"},
                     {mnemonic: "OUT", mc:"902", name: "Output", 
-                     description: "Copy the value in the Accumulator to the 'Output' box"},
+                     description: "Copia o valor do acumulador para a caixa de saída"},
                     {mnemonic: "DAT", mc:"xxx", name: "Data", 
-                     description: "Set the given memory location to the supplied value"},
+                     description: "Define o endereço de memória para o conteúdo fornecido|"},
                     {mnemonic: "HLT", mc:"000", name: "End program", 
-                     description: "Instructs the processor to stop executing instructions"},
+                     description: "Instrui o processador para parar de executar"},
                    ];
 
 
@@ -1320,7 +1320,7 @@ function runCode() {
   intervalHandle = setInterval(nextInstruction, getDelay());
   
   let logobj=document.getElementById("log-text");
-  logobj.value += "> Starting execution...\n";
+  logobj.value += "> Começando a execução...\n";
   logobj.scrollTop = logobj.scrollHeight;
 
   //
@@ -1438,7 +1438,7 @@ function fetchInstruction() {
       animateBus(ctx, 0);
 
       let logobj=document.getElementById("log-text");
-      logobj.value += "> FETCH:  Reading instruction from RAM\n";
+      logobj.value += "> FETCH:  Lendo instrução da memória RAM\n";
       logobj.scrollTop = logobj.scrollHeight;
     }
     memoryAddressRegister = formattedPC;
@@ -1738,13 +1738,13 @@ function executeInstruction() {
       if (settingSpeed != speeds.SUPERFAST) {
         animateBus(ctx, 11);
         let logobj=document.getElementById("log-text");
-        logobj.value += "> EXECUTE:  BRP: Branching as Accumulator is " + accumulator + "\n";
+        logobj.value += "> EXECUTE:  BRP: Ramificando, pois o acumulador é " + accumulator + "\n";
         logobj.scrollTop = logobj.scrollHeight;
       }
     } else {
       if (settingSpeed != speeds.SUPERFAST) {
         var logobj=document.getElementById("log-text");
-        logobj.value += "> EXECUTE:  BRP: Not branching as Accumulator is " + accumulator + "\n";
+        logobj.value += "> EXECUTE:  BRP: Não ramificando, pois o acumulador é " + accumulator + "\n";
         logobj.scrollTop = logobj.scrollHeight;
       }
     }
@@ -1757,7 +1757,7 @@ function executeInstruction() {
     if (type == "01"){
 //      animateBus(ctx, 4);
       let logobj=document.getElementById("log-text");
-      logobj.value += "> EXECUTE:  Waiting for input (to accumulator)\n";
+      logobj.value += "> EXECUTE:  Esperando entrada (para acumulador)\n";
       logobj.scrollTop = logobj.scrollHeight;
       let outobj=document.getElementById("input-text");
       outobj.value = "";
@@ -1773,7 +1773,7 @@ function executeInstruction() {
       outobj.scrollTop = outobj.scrollHeight;
 
       let logobj=document.getElementById("log-text");
-      logobj.value += "> EXECUTE:  OUT: Transferring value in Accumulator to Output\n";
+      logobj.value += "> EXECUTE:  OUT: Transferindo valor do acumulador para caixa de saída\n";
       logobj.scrollTop = logobj.scrollHeight;
 
       // Update the Output Mailbox
@@ -1785,7 +1785,7 @@ function executeInstruction() {
 
   if (currentInstructionRegister == "000"){
     let logobj=document.getElementById("log-text");
-    logobj.value += "> EXECUTE:  HALT instruction found\n";
+    logobj.value += "> EXECUTE:  Instrução HALT encontrada\n";
     allHalt();
   }
   
@@ -1875,7 +1875,7 @@ function writeMemory(addressString, data){
 
   if (settingSpeed != speeds.SUPERFAST) {
     let logobj=document.getElementById("log-text");
-    logobj.value += "> EXECUTE:  Writing memory at " + addressString + ": Contents: " + data + "\n";
+    logobj.value += "> EXECUTE:  Escrevendo na memória em " + addressString + ": Conteúdo: " + data + "\n";
     logobj.scrollTop = logobj.scrollHeight;
   }
 
@@ -1989,9 +1989,9 @@ function readMemory(addressString){
   if (settingSpeed != speeds.SUPERFAST) {
     let logobj=document.getElementById("log-text");
     if (execStage == executionStages.FETCH) {
-      logobj.value += ">    Reading memory at " + addressString + ": Contents: " + memorycontentdata + "\n";
+      logobj.value += ">    Lendo memória em " + addressString + ": Conteúdo: " + memorycontentdata + "\n";
     } else {
-      logobj.value += "> EXECUTE:  Reading memory at " + addressString + ": Contents: " + memorycontentdata + "\n";
+      logobj.value += "> EXECUTE:  Lendo memória em " + addressString + ": Conteúdo: " + memorycontentdata + "\n";
     }
     logobj.scrollTop = logobj.scrollHeight;
   }
@@ -2026,7 +2026,7 @@ function assembleCode() {
   //
   var timestamp = new Date().toLocaleTimeString('en-GB', {hour: "numeric", minute: "numeric", second: "numeric"});
   var logobj=document.getElementById("log-text");
-  logobj.value = "> ASSEMBLY:  Started assembly at " + timestamp + "\n";
+  logobj.value = "> ASSEMBLY:  Começou montagem em " + timestamp + "\n";
 
   //
   // Clear out Symbol Table (in a memory-friendly way) and reset count
@@ -2085,7 +2085,7 @@ function assembleCode() {
       return;
     }
   }
-  logobj.value += "> ASSEMBLY:  Symbol table built\n";
+  logobj.value += "> ASSEMBLY:  Tabela de símbolos construída\n";
   logobj.scrollTop = logobj.scrollHeight;
 
   //
@@ -2230,7 +2230,7 @@ function assembleCode() {
   }
 
   var timestamp = new Date().toLocaleTimeString('en-GB', {hour: "numeric", minute: "numeric", second: "numeric"});
-  logobj.value += "> ASSEMBLY:  Assembly completed at " + timestamp + "\n";
+  logobj.value += "> ASSEMBLY:  Montagem completada em " + timestamp + "\n";
   logobj.scrollTop = logobj.scrollHeight;
   changeState(states.ASSEMBLED);
 
@@ -2276,7 +2276,7 @@ function reportAssemblyError(lineNo, errString){
   var logobj=document.getElementById("log-text");
 
   logobj.value += errString;
-  logobj.value += "> ASSEMBLY:  Assembly failed\n";
+  logobj.value += "> ASSEMBLY:  Montagem falhou\n";
   logobj.scrollTop = logobj.scrollHeight;
   table1.deselectRow();
   table1.selectRow(lineNo);
@@ -2490,7 +2490,7 @@ function scaleCanvas(){
 //
 function handleFile() {
   let logobj=document.getElementById("log-text");
-  logobj.value += "> File Selected!\n";
+  logobj.value += "> Arquivo selecionado!\n";
   logobj.scrollTop = logobj.scrollHeight;
 
   let newData=[];
@@ -2501,7 +2501,7 @@ function handleFile() {
 
   codeReader.onload = function(event) {
     let logobj=document.getElementById("log-text");
-    logobj.value += "> File read\n";
+    logobj.value += "> Arquivo lido\n";
     logobj.scrollTop = logobj.scrollHeight;
 
     //
@@ -2523,9 +2523,9 @@ function handleFile() {
     }
 
     if (lineNumbers) {
-      logobj.value += "> File has line numbers\n";      
+      logobj.value += "> Arquivo tem número de linhas\n";      
     } else {
-      logobj.value += "> No line numbers found\n";
+      logobj.value += "> Número de linhas não foi encontrado\n";
     }
 
     //
@@ -2640,7 +2640,7 @@ function handleFile() {
 
     table1.setData(newData)
     .then(function(){
-      logobj.value += "> data added to table\n";
+      logobj.value += "> dado adicionado a tabela\n";
     })
     .catch(function(error){
       logobj.value += "> ERROR: " + error +"\n";
@@ -2812,7 +2812,7 @@ function loadExample() {
 
   // Let the user know we're loading the example
   let logobj=document.getElementById("log-text");
-  logobj.value += "> Example selected\n";
+  logobj.value += "> Exemplo selecionado\n";
   logobj.scrollTop = logobj.scrollHeight;
 
 
@@ -2840,7 +2840,7 @@ function loadExample() {
 
       table1.setData(codetabledata)
       .then(function(){
-        logobj.value += "> data added to table\n";
+        logobj.value += "> dado adicionado a tabela\n";
       })
       .catch(function(error){
         logobj.value += "> ERROR: " + error +"\n";

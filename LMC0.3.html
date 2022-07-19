@@ -219,37 +219,34 @@ O botão Imprimir irá criar e baixar um arquivo PDF com o programa atual.
         <div class="header">
           <i class="fa-solid fa-circle-info fa-2x" style="margin: 8px 8px;"></i>
           <button class="icon-button" id="about-close-btn" style="float: right;"><i class="fa-solid fa-circle-xmark fa-2x"></i></button>
-          <h4 class="modal-title" style="margin-left: 8px;">About the Little Man Computer</h4>
+          <h4 class="modal-title" style="margin-left: 8px;">Sobre o Little Man Computer</h4>
         </div>
         <div>
-          <h3>An Introduction to the LMC</h3>
+          <h3>Uma introdução ao LMC</h3>
 <p>
-The Little Man Computer (LMC) is a simplified model of a computer, based on the von Neumann architecture.
+O Little Man Computer (LMC) é um modelo simplificado de um computador, baseado na arquitetura de Von Neumann.
 </p>
-          <h3>The LMC Simulator</h3>
+          <h3>O Simulador LMC</h3>
 <p>
-This web app provides a simulation of the LMC, so that you can write programs in the LMC assembler
-and then assemble and run the programs.  The simulator will show you the state of all of the main
-registers in the CPU, as well as the state of the 'memory' of the LMC.
+Esse app web provê um simulador do LMC, para que voc~e possa escrever programas no assembler do LMC e possa montar e executar esses programas.
+O simulador irá mostrar o estado de todos os registradores na CPU, e também o estado da memória do LMC.
 </p> 
 <p>
-The flow of data around the CPU is displayed, and you can pause and resume the execution of your
-program at any time.
+O fluxo de dados da CPU é demonstrado, e você pode pausar e resumir a execução do seu programa a qualquer momento.
 </p> 
 <p>
-The code editor has individual columns for labels, operators and operands.  To learn more about how the editor
-works, just press the 'Help' button below the code window.
-You can use Ctrl-Z to undo any editor actions.
+O editor de código tem colunas individuais para rótulos (labels), operadores (operators) e operandos (operands).
+Para aprender mais sobre como o editor funciona, clique no botão "Ajuda" abaixo da janela do código.
+Você pode usar Ctrl-Z para desfazer qualquer ação do editor.
 </p>
 <p>
-There are a number of example programs that you can try out - just press the 'Examples' button
-below for more information.
+Há alguns exemplos de programas que você pode testar - apenas clique no botão "Exemplos" abaixo para mais informações.
 </p>
         </div>
         <div class="modal-footer">
           <button id="rabout-close-btn" class="button" onclick="closeAbout()">Fechar</button>
           <button id="instruction-set-modal-btn" class="button">Conjunto de instruções</button>
-          <button id="examples-modal-btn" class="button">Examplos</button>
+          <button id="examples-modal-btn" class="button">Exemplos</button>
           <button id="help-modal-btn" class="button">Ajuda do editor</button>
         </div>
       </div>
@@ -262,86 +259,86 @@ below for more information.
         <div class="header">
           <i class="fa-solid fa-table-list fa-2x" style="margin: 8px 8px;"></i>
           <button class="icon-button" id="instruction-set-close-btn" style="float: right;"><i class="fa-solid fa-circle-xmark fa-2x"></i></button>
-          <h4 class="modal-title" style="margin-left: 8px;">Little Man Computer Instruction Set</h4>
+          <h4 class="modal-title" style="margin-left: 8px;">Conjunto de instruções do </h4>
         </div>
         <div>
           <table id="instruction-set-table">
             <tr>
-              <th>Instruction</th> 
-              <th>Mnemonic</th> 
-              <th>Machine Code</th> 
-              <th>Explanation</th> 
+              <th>Instrução</th> 
+              <th>Mnemonico</th> 
+              <th>Código de máquina</th> 
+              <th>Explicação</th> 
             </tr>
             <tr>
-              <td>Load Accumulator</td> 
+              <td>Carregar acumulador</td> 
               <td>LDA</td> 
               <td>5xx</td> 
-              <td>Load the contents of the given memory address (xx) into the Accumulator</td> 
+              <td>Carrega o conteúdo de um endereço de memória (xx) no acumulador</td> 
             </tr>
             <tr>
-              <td>Store Accumulator</td> 
+              <td>Armazena acumulador</td> 
               <td>STA</td> 
               <td>3xx</td> 
-              <td>Store the contents of the Accumulator at the given memory address (xx)</td> 
+              <td>Armazena o conteúdo do acumulador no endereço de memória (xx)</td> 
             </tr>
             <tr>
-              <td>Add</td> 
+              <td>Soma</td> 
               <td>ADD</td> 
               <td>1xx</td> 
-              <td>Add the contents of the given memory address (xx) to the value in the Accumulator</td> 
+              <td>Soma o conteúdo do endereço de memória (xx) ao valor do acumulador</td> 
             </tr>
             <tr>
-              <td>Subtract</td> 
+              <td>Subtrai</td> 
               <td>SUB</td> 
               <td>2xx</td> 
-              <td>Subtract the contents of the given memory address (xx) from the value in the Accumulator</td> 
+              <td>Subtrai o conteúdo do endereço de memória (xx) do valor do acumulador</td> 
             </tr>
             <tr>
-              <td>Input</td> 
+              <td>Entrada</td> 
               <td>INP</td> 
               <td>901</td> 
-              <td>Copy the value from the Input 'mailbox' into the Accumulator</td> 
+              <td>Copia o valor da caixa de entrada para o acumulador</td> 
             </tr>
             <tr>
-              <td>Output</td> 
+              <td>Saída</td> 
               <td>OUT</td> 
               <td>902</td> 
-              <td>Copy the value from the Accumulator into the Output 'mailbox'</td> 
+              <td>Copia o valor do acumulador para a caixa de saída</td> 
             </tr>
             <tr>
-              <td>Branch</td> 
+              <td>Ramifica</td> 
               <td>BRA</td> 
               <td>6xx</td> 
-              <td>Branch (jump) to the instruction at the given memory address (xx)</td> 
+              <td>Ramifica (pula) para a instrução no endereço de memória (xx)</td> 
             </tr>
             <tr>
-              <td>Branch if positive</td> 
+              <td>Ramifica se positivo</td> 
               <td>BRP</td> 
               <td>8xx</td> 
-              <td>If the value in the Accumulator is positive (including zero), then branch to the instruction at the given memory address (xx)</td> 
+              <td>Se o valor no acumulador for positivo (incluindo zero), então ramifica para a instrução no endereço de memória (xx)</td> 
             </tr>
             <tr>
-              <td>Branch if zero</td> 
+              <td>Ramifica se zero</td> 
               <td>BRZ</td> 
               <td>7xx</td> 
-              <td>If the value in the Accumulator is zero, then branch to the instruction at the given memory address (xx)</td> 
+              <td>Se o valor no acumulador for zero, então ramifica para a instrução no endereço de memória (xx)</td> 
             </tr>
             <tr>
-              <td>Halt</td> 
+              <td>Parar</td> 
               <td>HLT</td> 
               <td>000</td> 
-              <td>Stop execution of the program</td> 
+              <td>Para a execução do programa</td> 
             </tr>
             <tr>
-              <td>Data</td> 
+              <td>Dado</td> 
               <td>DAT</td> 
-              <td>value of the data</td> 
-              <td>Indicates that the current memory address holds a data value</td> 
+              <td>valor do dado</td> 
+              <td>Indica que a posição atual de memória contém um dado</td> 
             </tr>
           </table>
         </div>
         <div class="modal-footer">
-          <button id="rinstruction-set-close-btn" class="button">Close</button>
+          <button id="rinstruction-set-close-btn" class="button">Fechar</button>
         </div>
       </div>
     </div>
