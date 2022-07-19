@@ -152,44 +152,43 @@
                 </tr>
                 <tr>
                     <td>MDR</td>
-                    <td>Memory Data Register</td>
+                    <td>Memory Data Register (Registrador de Dado da Memória)</td>
                     <td>
-                        The Memory Data Register holds a value which has either been read from Memory, or which is about
-                        to be written to Memory. It is important to note that this value can be either an instruction or
-                        data. In the case of an instruction, this will always have been read from Memory as part of the
-                        Fetch-Execute-Decode cycle. In the case of data, the value may have been read from memory (in an
-                        'LDA', 'SUB' or 'ADD' instruction) or be written to Memory (in an 'STA' instruction).
+                      O Registrador de Dado da Memória mantém o valor que foi lido da memória, ou que será escrito na memória.
+                      É importante notas que esse valor pode ser uma instrução ou dado. No caso de uma instrução, ele sempre 
+                      terá sido lido da memória como parte do ciclo BUSCA-EXECUTA-DECODIFICA. No caso de um dado, o valor 
+                      pode ter sido lido da memória (instrução 'ADD', 'SUB' ou 'LDA') ou será escrito na memória (instrução 
+                      'STA').
                     </td>
                 </tr>
                 <tr>
                     <td>SR</td>
-                    <td>Status Register</td>
+                    <td>Status Register (Registrador de Estado)</td>
                     <td>
-                        The Status Register is an important component in any modern processor. When the ALU has
-                        completed an operation, the Status Register is updated with information about that operation. In
-                        this simulator, only three bits are used: the Least Significant Bit (bit 0) is an overflow flag
-                        - if the result of an addition is greater than 999, or the result of a subtraction is less than
-                        -999, this flag will be set to 1. Bit 1 is used to record whether the result of an operation is
-                        zero, and bit 2 is used to record whether the result of an operation is positive (zero or more).
-                        Bits 1 and 2 are used in the 'BRZ' and 'BRP' operations.
+                      O Registrador de Estado é um componente importante de qualquer processador moderno. Quando a ALU 
+                      completa uma operação, o Registrador de Estado é atualizado com uma informação sobre essa operação. 
+                      Nesse simulador, apenas 3 bits são usados: O bit menos significativo (bit 0) é uma flag de transbordamento - 
+                      se o resultado de uma soma for maior que 999, ou o resultado de uma subtração for menos que -999, 
+                      essa flag terá valor 1. Bit 1 é usado para quando o resultado de uma operação é zero, e o bit 2 é 
+                      usado para quando o resultado de uma operação é positivo (zero ou mais). Bits 1 e 2 são usados nas 
+                      operações de ramificação 'BRZ' e 'BRP'.
                     </td>
                 </tr>
                 <tr>
                     <td>Output</td>
-                    <td>Output Mailbox</td>
+                    <td>Output Mailbox (Caixa de Saída)</td>
                     <td>
-                        The 'mailbox' used to hold output from the Accumulator. When an 'OUT' instruction is executed,
-                        the value currently held in the Accumulator is moved into this mailbox and then displayed to the
-                        user.
+                      A Caixa de Saída é usada para guardar a saída do acumulador. Quando uma instrução 'OUT' é executada, 
+                      o valor do Acumulador é movido para a Caixa de Saída e apresentado ao usuário.
                     </td>
                 </tr>
             </table>
             <p>
-                The code editor is based on a table design, making it easy to separate labels, operators, and operands
+              O editor de código é baseado em um design de tabela, tornando fácil separar os rótulos, operadores, e operandos.
             </p>
             <p>
-                When a program is running, the current line of code is shown with a green dot, and the value of
-                variables is updated in the Code Editor as well as in memory
+              Quando um programa está executando, a linha atual do código é mostrada com um ponto verde, e o valor das 
+              variáveis é atualizado no Editor de Código e também na memória.
             </p>
             <p></p>
             <p>
@@ -200,12 +199,12 @@
                 />
                 <p></p>
                 <p>
-                    Programs can be saved to local disk storage, uploaded from local storage, and converted to PDF for
-                    printing (or including in project reports).
+                  Programas podem ser salvos no armazenamento local, enviados do armazenamento local, e convertidos para PDF 
+                  para impressão (ou incluídos em relatórios de projeto).
                 </p>
             </p>
 
-            <p>When an LMC program is running, the console provides a summary of each operation.</p>
+            <p>Quando um programa LMC está rodando, o console provê um resumo de cada operação.</p>
             <p>
                 <img
                     src="images/Console.png"
@@ -214,8 +213,8 @@
                 />
             </p>
             <p>
-                The Little Man Computer simulator app can be found
-                <a href="https://wellingborough.github.io/LMC/LMC0.3.html">here</a>
+                O repositório original do simulador The Little Man Computer pode ser encontrado em: 
+                <a href="https://github.com/Wellingborough/LMC">https://github.com/Wellingborough/LMC</a>
             </p>
             <p>
                 <img
@@ -225,11 +224,7 @@
                     style="border: 2px solid #555"
                 />
             </p>
-            <p>
-                If you have any questions or comments on this LMC simulator, please
-                <a href="mailto:mga@wellingboroughschool.org?subject=LMC%20Simulator">contact me</a>
-            </p>
-            <p>The source code for this LMC simulator is available under the GNU General Public License v3.0.</p>
+            <p>O código fonte do simulador LMC está disponível sob licença GNU General Public License v3.0.</p>
         </div>
     </body>
 </html>
