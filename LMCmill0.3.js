@@ -3086,7 +3086,6 @@ function clearCode(){
 }
 
 function clearMemory(){
-  alert('limpo');
   blankmemorytabledata = [
     {id:1,  m0:"00",  m1:"01",  m2:"02",  m3:"03",  m4:"04",  m5:"05",  m6:"06",  m7:"07",  m8:"08",  m9:"09"},
     {id:2,  m0:"", m1:"", m2:"", m3:"", m4:"", m5:"", m6:"", m7:"", m8:"", m9:""},
