@@ -436,6 +436,9 @@ input[type=number] {
 
 #input-text{
   background-color: var(--bg-console);
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
 }
 
 #output-text{
