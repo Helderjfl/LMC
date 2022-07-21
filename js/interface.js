@@ -180,3 +180,12 @@ const end = (e) => {
     resizeEvent();
 }
 // <!-- Temp - alternative to split.js      -->
+
+let changeTheme = document.querySelector("#change-theme-btn").addEventListener("click", theme);
+
+function theme(){
+    let body = document.querySelector("body");
+
+    // body.classList.replace("purple", "dark");
+    body.classList.toggle("dark");
+}

@@ -1,9 +1,40 @@
+:root{
+  --dark-purple: #9933cc;
+  --light-purple: #f0daf5;
+  --mid-purple: #ffbbff;
+  --purple: #ee99ee;
+  --white: #ffffff;
+  --gray: #cccccc;
+  --dark-gray: rgb(56, 56, 56);
+  --black: #000;
+}
+
+.purple{
+  --bg-color: var(--dark-purple);
+  --bg-header: var(--dark-purple);
+  --bg-canvas: var(--light-purple);
+  --bg-log: var(--mid-purple);
+  --bg-io: var(--purple);
+  --text: var(--black);
+  --bg-console: var(--light-purple);
+}
+
+.dark{
+  --bg-color: var(--dark-gray);
+  --bg-header: var(--black);
+  --bg-canvas: var(--gray);
+  --bg-log: var(--dark-gray);
+  --bg-io: var(--dark-gray);
+  --text: var(--white);
+  --bg-console: var(--black);
+}
+
 .resize-drag {
   width: 120px;
   border-radius: 0px;
   padding: 0px;
   margin: 1rem;
-  background-color: #9933cc;
+  background-color: var(--bg-color);
   color: white;
   font-size: 20px;
   font-family: sans-serif;
@@ -16,6 +47,7 @@
 
 * {
   box-sizing: border-box;
+  transition: background-color 0.5s, color 1s;
 }
 
 
@@ -25,6 +57,7 @@ html,body {
   height: 100%;
   margin: 0;
 }
+
 
 .box {
   display: flex;
@@ -111,19 +144,32 @@ html {
 }
 
 .header {
-  background-color: #9933cc;
+  background-color: var(--bg-header);
   color: #ffffff;
   padding: 2px;
+  padding-left: 20px;
+}
+
+#div-hdr{
+  display:flex; 
+  flex-direction:row; 
+  margin-top:-4px; 
+  margin-bottom: -4px; 
+  margin-left:0px; 
+  margin-right:10px; 
+  flex-wrap: nowrap; 
+  justify-content: flex-start; 
+  align-items: center;
 }
 
 .footer {
-  background-color: #9933cc;
+  background-color: var(--bg-color);
   color: #ffffff;
   padding: 8px;
 }
 
 body {
-  background-color: #9933cc;
+  background-color: var(--bg-color);
 }
 
 .menu ul {
@@ -145,7 +191,7 @@ body {
 }
 
 .icon-button {
-  background-color: #9933cc; /* Dark Purple */
+  background-color: var(--bg-header); /* Dark Purple */
   border: none;
   color: #fecef7; /* Light Purple */
   padding: 12px 12px;
@@ -195,7 +241,7 @@ textarea {
 }
 
 canvas {
-  background-color: #f0daf5;
+  background-color: var(--bg-canvas);
 }
 
 .tabulator-row .tabulator-cell{
@@ -280,14 +326,14 @@ canvas {
 }
 .modal-header {
   position: relative; 
-  background-color: #9933cc;
+  background-color: var(--bg-color);
 /*  background-color: #fecef7; */
   color: #ffffff;
   padding: 1px;
 }
 .modal-footer {
   position: relative; 
-  background-color: #9933cc;
+  background-color: var(--bg-color);
 /*  background-color: #fecef7; */
   color: #ffffff;
   padding: 8px;
@@ -329,10 +375,15 @@ canvas {
 #output-text{
   font-size: 1.1rem;
   margin: 5px auto;
+  height: 92%;
 }
 
 #log-text{
   font-size: 1.1rem;
+  height:92%;
+  margin-top: 10px;
+  background-color: var(--bg-console);
+  color: var(--text);
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -345,4 +396,47 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+#log-div{
+  background-color: var(--bg-log);
+  padding:8px;
+  display:flex; 
+  flex-direction:column; 
+  width:100%;
+}
+
+#log-div span{
+  color: var(--text);
+  padding: 8px;
+}
+
+#input-div{
+  background-color: var(--bg-io);
+  padding:8px; 
+  align-items: center;
+}
+
+#input-div span{
+  color: var(--text); 
+  padding: 8px;
+}
+
+#output-div{
+  flex: 1; 
+  background-color: var(--bg-io);
+  padding:8px;
+}
+
+#output-div span{
+  color: var(--text); 
+  padding: 8px;
+}
+
+#input-text{
+  background-color: var(--bg-console);
+}
+
+#output-text{
+  background-color: var(--bg-console);
 }

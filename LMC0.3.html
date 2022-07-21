@@ -23,7 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.1.8/js/tabulator.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js" defer></script>
-    <script src="https://kit.fontawesome.com/0b212d21ae.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/608c27dfa5.js" crossorigin="anonymous"></script>
     <script src="js/interface.js" defer></script>
   </head>
 
@@ -31,15 +31,16 @@
     <!--    https://www.w3docs.com/snippets/html/how-to-make-a-div-fill-  -->
     <!--    the-height-of-the-remaining-space.html                        -->
 
-  <body onresize="resizeEvent()" onload="filltable()">
+  <body class="purple" onresize="resizeEvent()" onload="filltable()">
 
     <!-- Should also create a symbol table -->
 
     <div id="div-main" class="box">
       <!-- Row 1 -->
-      <div class="row header" id="div-hdr" style="display:flex; flex-direction:row; margin-top:-4px; margin-bottom: -4px; margin-left:10px; margin-right:10px; flex-wrap: nowrap; justify-content: flex-start; align-items: center;">
+      <div class="row header" id="div-hdr">
         <p>Simulador Little Man Computer</p>
         <div style="margin-left: auto;">
+          <button id="change-theme-btn" class="icon-button" title="Trocar tema"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></button>
           <button id="instruction-btn" class="icon-button" title="Conjunto de instruções"><i class="fa-solid fa-microchip fa-lg"></i></button>
           <button id="save-btn" class="icon-button" title="Salvar programa em arquivo" onclick="saveCode()"><i class="fa-solid fa-file-arrow-down fa-lg"></i></button>
           <button id="hide-load-btn" class="icon-button" title="Carregar programa de arquivo" onclick="document.getElementById('load-btn').click()"><i class="fa-solid fa-file-arrow-up fa-lg"></i></button>
@@ -85,22 +86,22 @@
           <div class="row footer" id="I-O-Console-holder" style="display:flex; flex-direction:row; flex: 0 1 auto; margin:0px; width:100%; height:100%;">
             <div style="display:flex; flex-direction:column; margin:0px;">
 
-              <div id="input-div" style="background-color: #ee99ee;padding:8px; align-items: center;">
-                  <span style="background-color: #ee99ee; color: #000000; padding: 8px;">Entrada:</span>
+              <div id="input-div">
+                  <span>Entrada:</span>
                   <input type="number" id="input-text" min="0" max="999" >
                   <button onclick="processInput()" id="input-button">Enter</button>
               </div>
-              <div class="col-12" id="output-div" style="flex: 1; background-color: #ee99ee;padding:8px;">
-                <span style="background-color: #ee99ee; color: #000000; padding: 8px;">Saída:</span>
+              <div class="col-12" id="output-div">
+                <span>Saída:</span>
                 <textarea id="output-text" rows="12" readonly="true"></textarea>
               </div>
 
             </div>
 
-            <div id="log-div" style="background-color: #ffbbff;padding:8px;display:flex; flex-direction:column; width:100%;">
+            <div id="log-div"">
               <div style="margin:0px; height:100%; width:100%; box-sizing: border-box;">
-                <span style="background-color: #ffbbff; color: #000000; padding: 8px;">Console:</span>
-                <textarea id="log-text" rows="4" readonly="true" style="height:95%;" disabled></textarea>
+                <span>Console:</span>
+                <textarea id="log-text" rows="4" readonly="true" disabled></textarea>
               </div>
             </div>
           </div>
