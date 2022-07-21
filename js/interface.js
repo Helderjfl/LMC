@@ -11,6 +11,14 @@ settingsCloseBtn.onclick = function () {
     settingsModal.style.display = "none";
 }
 
+let instructionModalBtn = document.querySelector("#instruction-btn").addEventListener("click", instructionModal);
+
+function instructionModal(){
+    let instructionSetModal = document.querySelector("#instruction-set-modal");
+    instructionSetModal.style.display = "block";
+}
+
+
 window.onclick = function (e) {
     if (e.target == settingsModal) {
         settingsModal.style.display = "none";
