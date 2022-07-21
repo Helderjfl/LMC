@@ -2291,7 +2291,7 @@ function changeState(newState){
 
   switch (newState) {
     case states.UNASSEMBLED:
-      newLabel="Unassembled";
+      newLabel="Desmontado";
       document.getElementById("run-btn").disabled = true;
       document.getElementById("stop-btn").disabled = true;
       document.getElementById("resume-btn").disabled = true;      
@@ -2304,7 +2304,7 @@ function changeState(newState){
       break;
 
     case states.ASSEMBLED:
-      newLabel="Assembled into memory";
+      newLabel="Montado na memória";
       document.getElementById("run-btn").disabled = false;
       document.getElementById("next-btn").disabled = false;
       document.getElementById("resume-btn").disabled = true;      
@@ -2314,7 +2314,7 @@ function changeState(newState){
     case states.RUNNING.STOPPING:
       //  Will be followed by a transition to STOPPED when execution of the
       //  current instruction has completed.
-      newLabel="Stopping when the current instruction has completed";
+      newLabel="Parando quando a instrução atual for completada";
       document.getElementById("run-btn").disabled = true;
       document.getElementById("stop-btn").disabled = true;      
       document.getElementById("resume-btn").disabled = true;      
@@ -2322,7 +2322,7 @@ function changeState(newState){
       break;
 
     case states.STOPPED:
-      newLabel="Stopped";
+      newLabel="Parado";
       document.getElementById("run-btn").disabled = false;
       document.getElementById("stop-btn").disabled = true;      
       document.getElementById("resume-btn").disabled = false;      
@@ -2330,7 +2330,7 @@ function changeState(newState){
       break;
 
     case states.HALTED:
-      newLabel="Halted";
+      newLabel="Terminado";
       document.getElementById("run-btn").disabled = false;
       document.getElementById("stop-btn").disabled = true;      
       document.getElementById("resume-btn").disabled = true;      
@@ -2338,7 +2338,7 @@ function changeState(newState){
       break;
 
     case states.RUNNING.ACTIVE:
-      newLabel="Running - active";
+      newLabel="Executando - ativo";
       document.getElementById("run-btn").disabled = true;
       document.getElementById("stop-btn").disabled = false;
       document.getElementById("resume-btn").disabled = true;      
@@ -2346,14 +2346,14 @@ function changeState(newState){
       break;
 
     case states.RUNNING.BLOCKEDONINPUT:
-      newLabel="Waiting for user input";
+      newLabel="Esperando por entrada do usuário";
       document.getElementById("stop-btn").disabled = true;
       document.getElementById("resume-btn").disabled = true;      
       document.getElementById("next-btn").disabled = true;      
       break;
 
     default:
-      newLabel="Unrecognised state";
+      newLabel="Estado não reconhecido";
       break;
   }
 
