@@ -17,6 +17,8 @@
   --bg-io: var(--purple);
   --text: var(--black);
   --bg-console: var(--light-purple);
+  --bg-button: var(--mid-purple);
+  --bg-button-active: var(--white);
 }
 
 .dark{
@@ -27,6 +29,8 @@
   --bg-io: var(--dark-gray);
   --text: var(--white);
   --bg-console: var(--black);
+  --bg-button: var(--white);
+  --bg-button-active: var(--light-purple);
 }
 
 .resize-drag {
@@ -109,7 +113,7 @@ html,body {
 
 
 .row::after {
-  content: "";
+  /* content: ""; */
   clear: both;
   display: table;
 }
@@ -211,7 +215,7 @@ body {
 }
 
 .button {
-  background-color: #fecef7; /* Light Purple */
+  background-color: var(--bg-button); /* Light Purple */
   border: none;
   color: black;
   padding: 4px 6px;
@@ -224,7 +228,8 @@ body {
 }
 
 .button:active {
-  background-color: #ffffff; /* White */
+  background-color: var(--bg-button-active); /* White */
+  transition: background-color 0.1s;
 }
 
 .button:disabled {
@@ -282,6 +287,10 @@ canvas {
   background-color: #FFDDDD !important;
 }
 
+#cpu-button-holder{
+  display: flex;
+  justify-content: space-between;
+}
 
 #instruction-set-table {
   font-family: arial, sans-serif;
@@ -368,9 +377,20 @@ canvas {
 #input-button{
   padding: 10px;
   width: 100%;
-  background-color: #c19cd4;
-  border: solid 1px white;
+  background-color: var(--bg-button);
+  border: solid 0px white;
   font-size: 1.1rem;
+  font-weight: bold;
+}
+
+#input-button:active{
+  background-color: var(--bg-button-active); /* White */
+  transition: background-color 0.1s;
+}
+
+#div-content button:enabled:hover{
+  box-shadow: rgba(218, 224, 231, 0.3) 0px 0px 0px 5px;
+  transition: box-shadow 0.15s;
 }
 
 #output-text{
