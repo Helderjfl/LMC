@@ -111,6 +111,7 @@ helpCloseBtn.onclick = function () {
 document.getElementById('input-text').addEventListener("keypress", function (e) {
     if (e.code == "Enter") {
         document.getElementById('input-button').click();
+        // document.getElementById('input-text').style.backgroundColor = "var(--bg-io)";
     }
 }, true);
 

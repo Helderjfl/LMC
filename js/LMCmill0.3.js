@@ -1167,7 +1167,7 @@ function processInput(){
     // ... if so, process it and start running again
     //
     userInput = document.getElementById("input-text").value;
-
+    
     if (userInput.length == 0) {
       let logobj=document.getElementById("log-text");
       logobj.value += "> ERROR:  Valor de entrada inválido.\n";
@@ -1183,7 +1183,8 @@ function processInput(){
       logobj.scrollTop = logobj.scrollHeight;
       return;
     }
-
+    document.getElementById("input-text").style.backgroundColor = "var(--bg-console)";
+    
     
     let logobj=document.getElementById("log-text");
     logobj.value += "> EXECUTE:  Transferindo entrada para acumulador: " + userInput + "\n";
@@ -1781,6 +1782,7 @@ function executeInstruction() {
       logobj.scrollTop = logobj.scrollHeight;
       let outobj=document.getElementById("input-text");
       outobj.value = "";
+      outobj.style.backgroundColor = "var(--bg-io-highlight)";
       clearInterval(intervalHandle);
       // Save the current state - either running or step-by-step - so that
       // we can restore that state when user input is complete...

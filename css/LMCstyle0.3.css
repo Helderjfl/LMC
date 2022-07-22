@@ -19,6 +19,7 @@
   --bg-console: var(--light-purple);
   --bg-button: var(--mid-purple);
   --bg-button-active: var(--white);
+  --bg-io-highlight: #6dc2d9;
 }
 
 .dark{
@@ -31,6 +32,7 @@
   --bg-console: var(--black);
   --bg-button: var(--white);
   --bg-button-active: var(--light-purple);
+  --bg-io-highlight: #1d678f;
 }
 
 .resize-drag {
@@ -51,7 +53,7 @@
 
 * {
   box-sizing: border-box;
-  transition: background-color 0.5s, color 1s;
+  transition: background-color 0.3s, color 0.8s;
 }
 
 
