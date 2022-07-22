@@ -247,9 +247,17 @@ var settingShowMemoryAccess = stashedSettingShowMemoryAccess;
 // Main function
 function filltable() {
 
-  var codetabledata = [
-    {id:1,  active:"-", line:"00", label:"", operator:"", operand:""},
-  ];
+  if(localStorage.getItem("code")){ /* if there's code saved on localStorage, it will load it instead of a blank code */
+    var codetabledata = JSON.parse(localStorage.getItem("code"));
+
+    codetabledata.forEach( (row) => {
+      row.active = "-";
+    });
+  }else{
+    var codetabledata = [
+      {id:1,  active:"-", line:"00", label:"", operator:"", operand:""},
+    ];
+  }
 
 
   Tabulator.extendModule("keybindings", "actions", {
@@ -435,11 +443,23 @@ function filltable() {
   table1.on("cellEdited", function(data){ // fired if the user edits the table, but not programmatic changes...
     clearInterval(intervalHandle);
     changeState(states.UNASSEMBLED);
+
+    let codeToBeSaved = JSON.stringify(table1.getData());
+    console.log(codeToBeSaved);
+  
+    localStorage.setItem("code", codeToBeSaved); /* save the editor code on local storage to recover if the page is updated */
   });
 
   table1.on("rowAdded", function(row) {
     handleNewRow(row);
   });
+
+  // table1.on("rowUpdated", function(row){
+  //   let codeToBeSaved = JSON.stringify(table1.getData());
+  //   console.log(codeToBeSaved);
+  
+  //   localStorage.setItem("code", codeToBeSaved);
+  // });
 
 
   //
@@ -1291,7 +1311,7 @@ var memoryAddressRegister = 0;
 var currentInstructionRegister = 0;
 var statusRegister = "00000000";
 
-var intervalHandler;
+var intervalHandle;
 
 function runCode() {
 
@@ -3083,6 +3103,9 @@ function clearCode(){
   }
 
   table1.setData(codetabledata);
+  localStorage.clear();
+
+  clearMemory();
 }
 
 function clearMemory(){
@@ -3110,3 +3133,4 @@ function clearMemory(){
   ];
   table2.setData(blankmemorytabledata);
 }
+
