@@ -445,8 +445,6 @@ function filltable() {
     changeState(states.UNASSEMBLED);
 
     let codeToBeSaved = JSON.stringify(table1.getData());
-    console.log(codeToBeSaved);
-  
     localStorage.setItem("code", codeToBeSaved); /* save the editor code on local storage to recover if the page is updated */
   });
 
