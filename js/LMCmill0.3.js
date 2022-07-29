@@ -2559,7 +2559,7 @@ function handleFile() {
       for (var j=0; j<elements.length; j++) {
 
         for (var k=0; k < opcodesLMC.length; k++) {
-          if (opcodesLMC[k]['mnemonic'] == elements[j]) {
+          if (opcodesLMC[k]['mnemonic'] == elements[j].toUpperCase()) {
             foundOperator = true;
             operatorIndex = j;
             break;
